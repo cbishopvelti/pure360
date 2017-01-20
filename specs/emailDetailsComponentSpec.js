@@ -1,5 +1,3 @@
-// var angular = require('angular')
-// var emailDetailsComponent = require('../src/emailDetails/emailDetailsComponent')
 
 describe('email details component', function () {
 

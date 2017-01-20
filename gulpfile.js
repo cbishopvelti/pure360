@@ -2,13 +2,18 @@ var gulp = require('gulp');
 var changed = require('gulp-changed');
 var webpack = require('gulp-webpack');
 var server = require('gulp-express');
-// var jasmine = require('gulp-jasmine');
 var karma = require('gulp-karma-runner');
 
 gulp.task('copy-html', function () {
 	return gulp.src(["src/**/*.html"])
         .pipe(changed("target/"))
         .pipe(gulp.dest("target/"))
+})
+
+gulp.task('copy-css', function () {
+    return gulp.src(["src/**/*.css"])
+        .pipe(changed("target/css"))
+        .pipe(gulp.dest("target/css"))
 })
 
 gulp.task('copy-bootstrap', function () {
@@ -33,15 +38,25 @@ gulp.task('webpack', function() {
     .pipe(gulp.dest('target/'));
 });
 
+gulp.tastk('build', [
+    'copy-html',
+    'copy-css',
+    'copy-api',
+    'copy-bootstrap',
+    'webpack'
+], function () {
+
+})
+
 gulp.task('default', [
-	'copy-html',
-	'copy-api',
-	'copy-bootstrap',
+	'build',
 	'webpack'
 ], function () {
 
     server.run(['server.js']);
 })
+
+
 
 gulp.task('test', ['webpack'], function () {
     gulp.src([

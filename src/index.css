@@ -1,0 +1,12 @@
+.email-details .row div {
+	display: inline-block;
+}
+
+.email-details .row div.label-1 {
+	width: 110px;
+	text-align: right;
+}
+
+.email-details .email-toggle {
+	text-align: center;
+}

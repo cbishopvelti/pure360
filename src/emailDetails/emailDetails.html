@@ -1,17 +1,18 @@
-<div>
-	<div>
-		<div>Message Name: </div>
+<div class="email-details">
+	<div class="row">
+		<div class="label-1">Message Name: </div>
 		<div>{{$ctrl.email.name}}</div>
 	</div>
-	<div>
-		<div>Subject line: </div>
+	<div class="row">
+		<div class="label-1">Subject line: </div>
 		<div>
 			<span ng-repeat="subject in $ctrl.email.subjects">{{subject}}
 				<span ng-show="!$last">, </span>
 			</span>
 		</div>
 	</div>
-	<div>
+	<div class="email-toggle">
+	
 		<button ng-click="toggleHtml()" data-ng-class="{'active' : html == true}">
 			Html
 		</button>
