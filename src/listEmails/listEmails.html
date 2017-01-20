@@ -1,0 +1,14 @@
+<table class="table">
+	<tr ng-repeat="email in $ctrl.emails">
+		<td>{{email.name}}</td>
+		<td>
+			<span ng-repeat="subject in email.subjects">{{subject}}
+				<span ng-show="!$last">, </span>
+			</span>
+		</td>
+		<td>
+			<a href="#!/details/{{email.id}}" class="btn">MORE</a>
+		</td>
+	</tr>
+	
+</table>

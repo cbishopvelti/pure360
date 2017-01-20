@@ -1,0 +1,33 @@
+<div>
+	<div>
+		<div>Message Name: </div>
+		<div>{{$ctrl.email.name}}</div>
+	</div>
+	<div>
+		<div>Subject line: </div>
+		<div>
+			<span ng-repeat="subject in $ctrl.email.subjects">{{subject}}
+				<span ng-show="!$last">, </span>
+			</span>
+		</div>
+	</div>
+	<div>
+		<button ng-click="toggleHtml()" data-ng-class="{'active' : html == true}">
+			Html
+		</button>
+		<button ng-click="toggleText()" data-ng-class="{'active' : html == false}">
+			Text
+		</button>
+		
+	</div>
+	<div>
+		<!-- TODO: fix security -->
+		<div ng-show="html">
+
+			<ng-bind-html ng-bind-html="$ctrl.email.body.html"></ng-bind-html>
+		</div>
+		<div ng-hide="html">
+			<pre>{{$ctrl.email.body.text}}</pre>
+		</div>
+	</div>
+</div>
