@@ -17,8 +17,6 @@ describe('email details component', function () {
 		});
 
 		expect(testScope.html).toBe(true)
-
-		// var ctrl = new emailDetailsComponent(scope);
 	});
 
 	it('should change html on false on toggleText', function () {
